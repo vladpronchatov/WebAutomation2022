@@ -5,7 +5,8 @@
     <test name = "Amazon Home">
 
         <classes>
-            <class name="testcalculation.TestCalculator" />
+            <class name="home.TestPageTitle"/>
+            <class name="home.TestSearch"/>
         </classes>
 
     </test>
