@@ -4,6 +4,8 @@
 <suite name ="Amazon Test Automation Script" parallel="false">
     <test name = "Amazon Home">
 
+        <parameter name="url" value="https://www.amazon.com/"/>
+
         <classes>
             <class name="home.TestPageTitle"/>
             <class name="home.TestSearch"/>
