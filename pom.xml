@@ -12,6 +12,7 @@
         <module>Amazon</module>
         <module>Generic</module>
         <module>NYP</module>
+        <module>W3Schools</module>
     </modules>
 
     <dependencyManagement>
@@ -30,6 +31,16 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
             <version>4.0.0-alpha-2</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.6.4</version>
         </dependency>
     </dependencies>
     </dependencyManagement>

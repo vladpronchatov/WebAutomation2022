@@ -3,11 +3,14 @@ package base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CommonAPI {
@@ -16,7 +19,7 @@ public class CommonAPI {
     @Parameters({"url"})
     @BeforeMethod
     public void launchBrowserInstance(String url){
-        System.setProperty("webdriver.chrome.driver","/Users/matiur/develop/aint/WebAutomationNovember2021/Generic/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver","/Users/mrahman/develop/aint/session/sdetNovember2021/WebAutomation-Nobemver2021/Generic/driver/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(url);
@@ -58,5 +61,14 @@ public class CommonAPI {
                 }
             }
         }
+    }
+
+    public List<String> getListOfTest(String locator){
+        List<WebElement> webElementList = driver.findElements(By.cssSelector(locator));
+        List<String> listOfText = new ArrayList<>();
+        for(WebElement element:webElementList){
+            listOfText.add(element.getText());
+        }
+        return listOfText;
     }
 }

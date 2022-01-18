@@ -7,8 +7,9 @@
         <parameter name="url" value="https://www.amazon.com/"/>
 
         <classes>
-            <class name="home.TestPageTitle"/>
+<!--            <class name="home.TestPageTitle"/>-->
             <class name="home.TestSearch"/>
+<!--            <class name="home.TestDropDownMenu"/>-->
         </classes>
 
     </test>
