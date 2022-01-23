@@ -51,6 +51,22 @@ public class ConnectToSqlDB {
         return data;
     }
 
+    public List<ItemModel> readDataBase(String tableName, String columnName1, String columnName2, String columnName3) throws Exception {
+        List<ItemModel> data = new ArrayList<ItemModel>();
+
+        try {
+            connectToSqlDatabase();
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("select * from " + tableName);
+            data = getResultSetData(resultSet, columnName1, columnName2, columnName3);
+        } catch (ClassNotFoundException e) {
+            throw e;
+        } finally {
+            close();
+        }
+        return data;
+    }
+
     private void close() {
         try {
             if (resultSet != null) {
@@ -76,6 +92,32 @@ public class ConnectToSqlDB {
         return dataList;
     }
 
+    private List<ItemModel> getResultSetData(ResultSet resultSet2, String columnName1, String columnName2, String columnName3) throws SQLException {
+        List<ItemModel> itemModelList = new ArrayList<ItemModel>();
+        ItemModel itemModel = null;
+        while (resultSet.next()) {
+            String itemName = resultSet.getString(columnName1);
+            String itemPrice = resultSet.getString(columnName2);
+            String itemReview = resultSet.getString(columnName3);
+            itemModel = new ItemModel(itemName, itemPrice, itemReview);
+            itemModelList.add(itemModel);
+        }
+        return itemModelList;
+    }
+    private List<ItemModel> getResultSetData(ResultSet resultSet2, String columnName1, String columnName2,
+                                             String columnName3, String columnName4) throws SQLException {
+        List<ItemModel> itemModelList = new ArrayList<ItemModel>();
+        ItemModel itemModel = null;
+        while (resultSet.next()) {
+            String itemName = resultSet.getString(columnName1);
+            String itemPrice = resultSet.getString(columnName2);
+            String itemReview = resultSet.getString(columnName3);
+            String itemTag = resultSet.getString(columnName3);
+            itemModel = new ItemModel(itemName, itemPrice, itemReview, itemTag);
+            itemModelList.add(itemModel);
+        }
+        return itemModelList;
+    }
     public void insertDataFromArrayToSqlTable(int[] ArrayData, String tableName, String columnName) {
         try {
             connectToSqlDatabase();
