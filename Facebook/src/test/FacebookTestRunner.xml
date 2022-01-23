@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name ="Facebook Test Automation Script" parallel="false">
+    <test name = "Facebook Home">
+
+        <parameter name="url" value="https://www.facebook.com/"/>
+
+        <classes>
+            <class name="facebookhome.FacebookLandingPage"/>
+
+        </classes>
+
+    </test>
+
+</suite>
