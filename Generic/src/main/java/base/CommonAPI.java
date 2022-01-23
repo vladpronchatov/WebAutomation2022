@@ -25,10 +25,10 @@ import java.util.concurrent.TimeUnit;
 
 public class CommonAPI {
 
-    public String browserStackUserName = "your browserstack user name";
-    public String browserStackAccessKey = "your browserstack access key";
-    public String sauceLabsUserName = "your sace lab user name";
-    public String sauceLabsAccessKey = "your sauce lab access key";
+    public String browserStackUserName = "vladislavproncha_t4pJdM";
+    public String browserStackAccessKey = "sYQ8BHDfdmB6z2JhRAdU";
+    public String sauceLabsUserName = "oauth-vp1192-b117f";
+    public String sauceLabsAccessKey = "7c083fcb-7aa0-4435-a390-06f134335f76";
 
     public static WebDriver driver = null;
 
