@@ -17,6 +17,7 @@
         <module>Facebook</module>
         <module>NewYorkPost</module>
         <module>TheStreet</module>
+        <module>Cigna</module>
     </modules>
 
     <dependencyManagement>
