@@ -16,6 +16,7 @@
         <module>Hulu</module>
         <module>Facebook</module>
         <module>NewYorkPost</module>
+        <module>TheStreet</module>
     </modules>
 
     <dependencyManagement>
