@@ -83,6 +83,7 @@ public class ConnectToSqlDB {
         }
     }
 
+
     private List<String> getResultSetData(ResultSet resultSet2, String columnName) throws SQLException {
         List<String> dataList = new ArrayList<String>();
         while (resultSet.next()) {
@@ -104,6 +105,7 @@ public class ConnectToSqlDB {
         }
         return itemModelList;
     }
+
     private List<ItemModel> getResultSetData(ResultSet resultSet2, String columnName1, String columnName2,
                                              String columnName3, String columnName4) throws SQLException {
         List<ItemModel> itemModelList = new ArrayList<ItemModel>();
@@ -118,6 +120,7 @@ public class ConnectToSqlDB {
         }
         return itemModelList;
     }
+
     public void insertDataFromArrayToSqlTable(int[] ArrayData, String tableName, String columnName) {
         try {
             connectToSqlDatabase();
@@ -154,6 +157,7 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
+
 
     public List<String> directDatabaseQueryExecute(String passQuery, String dataColumn) throws Exception {
         List<String> data = new ArrayList<String>();

@@ -61,7 +61,7 @@ public class CommonAPI {
             }
         }else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "Generic/driver/geckodriver");
+                System.setProperty("webdriver.gecko.driver", "/Users/vlad/WebAutomation-Nobemver2021/Generic/driver/geckodriver");
                 driver = new FirefoxDriver();
             }else if(OS.equalsIgnoreCase("Windows")){
                 System.setProperty("webdriver.gecko.driver", "Generic/driver/geckodriver.exe");
@@ -87,7 +87,7 @@ public class CommonAPI {
         cap.setCapability("os", OS);
         cap.setCapability("os_version", os_version);
         if(envName.equalsIgnoreCase("Browserstack")){
-            driver = new RemoteWebDriver(new URL("http://"+browserStackUserName+":"+browserStackAccessKey+
+            driver = new RemoteWebDriver(new URL("http://" + browserStackUserName +":"+ browserStackAccessKey+
                     "@hub-cloud.browserstack.com/wd/hub"),cap);
         }else if(envName.equalsIgnoreCase("Saucelabs")) {
             driver = new RemoteWebDriver(new URL("http://" + sauceLabsUserName + ":" + sauceLabsAccessKey +

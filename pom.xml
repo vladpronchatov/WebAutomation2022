@@ -11,11 +11,11 @@
     <modules>
         <module>Amazon</module>
         <module>Generic</module>
-        <module>NYP</module>
         <module>W3Schools</module>
         <module>BestBuy</module>
         <module>Hulu</module>
         <module>Facebook</module>
+        <module>NewYorkPost</module>
     </modules>
 
     <dependencyManagement>
