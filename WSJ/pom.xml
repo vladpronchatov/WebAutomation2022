@@ -9,14 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>TheStreet</artifactId>
+    <artifactId>WSJ</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>WebAutomation2021</groupId>
-            <artifactId>Generic</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
 </project>

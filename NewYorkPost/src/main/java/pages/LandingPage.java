@@ -1,5 +1,6 @@
 package pages;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -14,6 +15,8 @@ public class LandingPage {
 
     @FindBy(how = How.CSS, using = "#nypost-membership-header")
     public static WebElement logInWebElement;
+
+
 
     public void clickOnSectionMenu(){
         sectionNavBarWebElement.click();

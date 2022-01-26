@@ -1,5 +1,6 @@
 package pages;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,10 @@ public class MetroPage {
 
     @FindBy(how = How.CSS, using = ".story__headline.headline.headline--xl")
     public static WebElement headLineNewsWebElement;
+
+    public WebElement getHeadLineNewsWebElement(){
+        return headLineNewsWebElement;
+    }
 
     public String getHeadLineNewsText(){
         String headLine = headLineNewsWebElement.getText();
