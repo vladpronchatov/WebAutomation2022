@@ -1,18 +1,19 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class SearchPage {
 
-    @FindBy(how = How.CSS,using = "span.search-text")
+    @FindBy(how = How.CSS,using = ".site-header__search-toggle")//"span.search-text")
     public static WebElement searchIconWebElement;
 
-    @FindBy(how = How.CSS,using = "#search-field")
+    @FindBy(how = How.CSS,using = "input#search-input-header.search__input")   //"#search-field")
     public static WebElement searchInputFieldWebElement;
 
-    @FindBy(how = How.CSS,using = "#search-submit")
+    @FindBy(how = How.CSS,using = "button.search__submit")
     public static WebElement searchSubmitButtonWebElement;
 
     public void searchIcon(){
@@ -20,18 +21,16 @@ public class SearchPage {
     }
 
     public void typeOnSearchField(String value){
-        searchInputFieldWebElement.sendKeys(value);
+        searchInputFieldWebElement.sendKeys(value, Keys.ENTER);
     }
     public void clickOnSubmitButton(){
         searchSubmitButtonWebElement.click();
     }
     public void searchIconClickNEnterNewsNSubmit(){
-        searchIcon();
         typeOnSearchField("covid-19");
-        clickOnSubmitButton();
+        //clickOnSubmitButton();
     }
     public void clickOnSearchButton(){
         searchSubmitButtonWebElement.click();
     }
-
 }
