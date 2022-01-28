@@ -4,9 +4,9 @@ import base.CommonAPI;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-import wsjnavigation.WSJLandingPage;
+import wsjpages.WSJLandingPage;
 
-public class TestWSJLandingPage extends CommonAPI {
+public class TestWSJLandingPage extends CommonAPI{
 
     //@Test
     public void getLandingPageTitle()throws InterruptedException{
@@ -16,9 +16,9 @@ public class TestWSJLandingPage extends CommonAPI {
 
     //@Test
     //public void clickOnSectionMenuTab(){
-    //WSJLandingPage landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
+    //    WSJLandingPage landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
     //    landingPage.clickOnSectionMenu();
-    // }
+    //}
 
     //@Test
     public void clickOnSearch(){

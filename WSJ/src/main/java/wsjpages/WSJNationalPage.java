@@ -1,14 +1,14 @@
-package wsjnavigation;
+package wsjpages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class WSJTechPage {
+public class WSJNationalPage {
 
     private final WebDriver driver;
-    public WSJTechPage(WebDriver driver){
+    public WSJNationalPage(WebDriver driver){
         this.driver = driver;
     }
 

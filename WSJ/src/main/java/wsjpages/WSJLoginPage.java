@@ -1,4 +1,4 @@
-package wsjnavigation;
+package wsjpages;
 
 public class WSJLoginPage {
 }

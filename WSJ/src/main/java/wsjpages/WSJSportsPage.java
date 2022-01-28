@@ -1,4 +1,4 @@
-package wsjnavigation;
+package wsjpages;
 
 
 import org.openqa.selenium.WebDriver;

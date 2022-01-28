@@ -14,7 +14,7 @@
 
         <classes>
             <!--            <class name="nypnavigation.NYPLandingPage"/>-->
-            <class name="wsjnavigation.TestWSJLandingPage"/>
+            <class name="wsjpages.TestWSJLandingPage"/>
         </classes>
 
     </test>
