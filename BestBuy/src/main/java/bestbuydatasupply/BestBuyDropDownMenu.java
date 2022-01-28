@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 
 public class BestBuyDropDownMenu extends CommonAPI {
 
-
     public void fetchDropDownMenu(){
         List<String> expectedMenuItems = getListOfTest(".c-button-unstyled.hamburger-menu-button option");
         //making api call in the back end to fetch menu text

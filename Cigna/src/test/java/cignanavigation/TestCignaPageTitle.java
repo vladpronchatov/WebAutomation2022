@@ -1,14 +1,14 @@
-package BestBuyHome;
+package cignanavigation;
 
 import base.CommonAPI;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestBestBuyPageTitle extends CommonAPI {
+public class TestCignaPageTitle extends CommonAPI {
 
     @Test
     public void pageTitle() throws InterruptedException {
-        String actualTitle = "Best Buy | Official Online Store | Shop Now & Save";
+        String actualTitle = "Cigna Official Site  | Global Health Service Company";
         String expectedTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
     }

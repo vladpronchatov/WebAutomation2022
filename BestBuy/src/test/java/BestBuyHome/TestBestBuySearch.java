@@ -1,6 +1,5 @@
 package BestBuyHome;
 
-
 import base.CommonAPI;
 import bestbuydatasupply.BestBuySearchItems;
 import org.openqa.selenium.By;
@@ -14,4 +13,3 @@ public class TestBestBuySearch extends BestBuySearchItems{
         itemsSearch();
     }
 }
-
