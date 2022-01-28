@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 public class WSJTechPage {
 
     private final WebDriver driver;
-    public WSJPoliticsPage(WebDriver driver){
+    public WSJTechPage(WebDriver driver){
         this.driver = driver;
     }
 

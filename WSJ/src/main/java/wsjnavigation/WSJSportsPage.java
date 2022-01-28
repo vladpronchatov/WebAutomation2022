@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 
 public class WSJSportsPage {
     private final WebDriver driver;
-    public SportsPage(WebDriver driver){
+    public WSJSportsPage(WebDriver driver){
         this.driver = driver;
     }
 
