@@ -25,11 +25,11 @@ public class ChaseSectionMenuPage {
     public void clickOnChaseSectionMenu(){
         sectionMenuWebElement.click();
     }
-    public ChaseCheckingPage goToChaseCheckingPage(WebDriver driver){
-        checkingSectionWebElement.click();
+    //public ChaseCheckingPage goToChaseCheckingPage(WebDriver driver){
+        //checkingSectionWebElement.click();
 
-        return new ChaseCheckingPage(driver);
-    }
+        //return new ChaseCheckingPage(driver);
+    //}
 
     public ChaseBusinessPage goToChaseBusinessPage(WebDriver driver){
         chaseBusinessSectionWebElement.click();

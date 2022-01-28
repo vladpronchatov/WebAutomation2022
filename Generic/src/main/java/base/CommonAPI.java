@@ -1,5 +1,9 @@
 package base;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,26 +13,86 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
+import reporting.ExtentManager;
+import reporting.ExtentTestManager;
 
 import java.io.File;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CommonAPI {
 
-    public String browserStackUserName = "vladislavproncha_t4pJdM";
-    public String browserStackAccessKey = "sYQ8BHDfdmB6z2JhRAdU";
-    public String sauceLabsUserName = "oauth-vp1192-b117f";
-    public String sauceLabsAccessKey = "7c083fcb-7aa0-4435-a390-06f134335f76";
+    //Extent Report
+    public static ExtentReports extent;
+    @BeforeSuite
+    public void extentSetup(ITestContext context) {
+        ExtentManager.setOutputDirectory(context);
+        extent = ExtentManager.getInstance();
+    }
+    @BeforeMethod
+    public void startExtent(Method method) {
+        String className = method.getDeclaringClass().getSimpleName();
+        String methodName = method.getName().toLowerCase();
+        ExtentTestManager.startTest(method.getName());
+        ExtentTestManager.getTest().assignCategory(className);
+    }
+    protected String getStackTrace(Throwable t) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        t.printStackTrace(pw);
+        return sw.toString();
+    }
+    @AfterMethod
+    public void afterEachTestMethod(ITestResult result) {
+        ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
+        ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
+
+        for (String group : result.getMethod().getGroups()) {
+            ExtentTestManager.getTest().assignCategory(group);
+        }
+
+        if (result.getStatus() == 1) {
+            ExtentTestManager.getTest().log(LogStatus.PASS, "Test Passed");
+        } else if (result.getStatus() == 2) {
+            ExtentTestManager.getTest().log(LogStatus.FAIL, getStackTrace(result.getThrowable()));
+        } else if (result.getStatus() == 3) {
+            ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+        }
+        ExtentTestManager.endTest();
+        extent.flush();
+        if (result.getStatus() == ITestResult.FAILURE) {
+            captureScreenshot(driver, result.getName());
+        }
+        driver.quit();
+    }
+    @AfterSuite
+    public void generateReport() {
+        extent.close();
+    }
+    private Date getTime(long millis) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(millis);
+        return calendar.getTime();
+    }
+    //webDriver
+    public String browserStackUserName = "your browserstack user name";
+    public String browserStackAccessKey = "your browserstack access key";
+    public String sauceLabsUserName = "your sace lab user name";
+    public String sauceLabsAccessKey = "your sauce lab access key";
 
     public static WebDriver driver = null;
 
@@ -45,7 +109,7 @@ public class CommonAPI {
             getLocalDriver(OS,browserName);
         }
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(url);
         driver.manage().window().maximize();
     }
@@ -53,26 +117,30 @@ public class CommonAPI {
     public WebDriver getLocalDriver(String OS, String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "/Users/vlad/WebAutomation-Nobemver2021/Generic/driver/chromedriver");
+                //System.setProperty("webdriver.chrome.driver", "Generic/driver/chromedriver");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "Generic/driver/chromedriver.exe");
+                //System.setProperty("webdriver.chrome.driver", "Generic/driver/chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }
         }else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "/Users/vlad/WebAutomation-Nobemver2021/Generic/driver/geckodriver");
+                //System.setProperty("webdriver.gecko.driver", "Generic/driver/geckodriver");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.gecko.driver", "Generic/driver/geckodriver.exe");
+                //System.setProperty("webdriver.gecko.driver", "Generic/driver/geckodriver.exe");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
         }else if(browserName.equalsIgnoreCase("ie")){
-            System.setProperty("webdriver.ie.driver", "Generic/driver/internetexplorerdriver.exe");
+            //System.setProperty("webdriver.ie.driver", "Generic/driver/internetexplorerdriver.exe");
+            WebDriverManager.iedriver().setup();
             driver = new InternetExplorerDriver();
 
         }else if(browserName.equalsIgnoreCase("safari")){
-            System.setProperty("webdriver.safari.driver", "Generic/driver/safaridriver");
             driver = new SafariDriver();
         }
         return driver;
@@ -87,7 +155,7 @@ public class CommonAPI {
         cap.setCapability("os", OS);
         cap.setCapability("os_version", os_version);
         if(envName.equalsIgnoreCase("Browserstack")){
-            driver = new RemoteWebDriver(new URL("http://" + browserStackUserName +":"+ browserStackAccessKey+
+            driver = new RemoteWebDriver(new URL("http://"+browserStackUserName+":"+browserStackAccessKey+
                     "@hub-cloud.browserstack.com/wd/hub"),cap);
         }else if(envName.equalsIgnoreCase("Saucelabs")) {
             driver = new RemoteWebDriver(new URL("http://" + sauceLabsUserName + ":" + sauceLabsAccessKey +
@@ -216,22 +284,22 @@ public class CommonAPI {
 
     //Synchronization
     public static void waitUntilClickAble(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public static void waitUntilVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public static void waitUntilSelectable(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean element = wait.until(ExpectedConditions.elementToBeSelected(locator));
     }
 
     public static void waitUntilClickAble(WebElement locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         }catch(Exception ex){
@@ -240,12 +308,12 @@ public class CommonAPI {
     }
 
     public static void waitUntilVisible(WebElement locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOf(locator));
     }
 
     public static void waitUntilSelectable(WebElement locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean element = wait.until(ExpectedConditions.elementToBeSelected(locator));
     }
 
@@ -263,10 +331,10 @@ public class CommonAPI {
             ;
         }
     }
-//    public static String convertToString(String st) {
-//        String splitString = "";
-//        splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
-//        return splitString;
-//    }
+    public static String convertToString(String st) {
+        String splitString = "";
+        splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
+        return splitString;
+    }
 
 }

@@ -7,10 +7,10 @@ import org.openqa.selenium.support.How;
 
 public class SearchPage {
 
-    @FindBy(how = How.CSS,using = ".site-header__search-toggle")//"span.search-text")
+    @FindBy(how = How.CSS,using = ".site-header__search-toggle")
     public static WebElement searchIconWebElement;
 
-    @FindBy(how = How.CSS,using = "input#search-input-header.search__input")   //"#search-field")
+    @FindBy(how = How.CSS,using = "input#search-input-header.search__input")
     public static WebElement searchInputFieldWebElement;
 
     @FindBy(how = How.CSS,using = "button.search__submit")
