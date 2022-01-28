@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class BusinessPage {
+
     private final WebDriver driver;
     public BusinessPage(WebDriver driver){
         this.driver = driver;
