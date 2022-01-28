@@ -6,7 +6,7 @@ import org.openqa.selenium.support.How;
 
 public class WSJSearchPage {
 
-    @FindBy(how = How.CSS,using = "span.search-text")
+    //@FindBy(how = How.CSS,using = "span.search-text")
     public static WebElement searchIconWebElement;
 
     @FindBy(how = How.CSS,using = ".style--wsj-search-input--2m4pqsLm ")

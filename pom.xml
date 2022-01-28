@@ -18,6 +18,7 @@
         <module>NewYorkPost</module>
         <module>Cigna</module>
         <module>WSJ</module>
+        <module>Chase</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name ="Cigna Test Automation Script" parallel="false">
+    <test name = "Cigna Home">
+
+        <parameter name="useCloudEnv" value="false"/>
+        <parameter name="envName" value="browserstack"/>
+        <parameter name="os" value="OS X"/>
+        <parameter name="os_version" value="Sierra"/>
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserVersion" value="80.0"/>
+        <parameter name="url" value="https://www.chase.com/"/>
+
+        <classes>
+            <!--            <class name="home.TestPageTitle"/>-->
+            <class name="chasepages.ChaseLandingPage"/>
+            <!--            <class name="home.TestDropDownMenu"/>-->
+        </classes>
+
+    </test>
+
+</suite>
