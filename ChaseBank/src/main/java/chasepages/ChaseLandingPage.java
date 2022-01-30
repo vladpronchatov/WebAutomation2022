@@ -1,10 +1,11 @@
 package chasepages;
 
+import base.CommonAPI;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class ChaseLandingPage {
+public class ChaseLandingPage extends CommonAPI {
 
     @FindBy(how = How.CSS, using = "#skip-sidemenu")
     public static WebElement sectionNavBarWebElement;
@@ -18,16 +19,20 @@ public class ChaseLandingPage {
     @FindBy(how = How.CSS, using = "#signin-button")
     public static WebElement logInSubmitWebElement;
 
-    public void clickOnSectionMenu(){
+    public void clickOnSectionMenu() {
         sectionNavBarWebElement.click();
     }
-    public void clickOnSearch(){
+
+    public void clickOnSearch() {
         searchWebElement.click();
     }
-    public void clickOnLogIn(){
+
+    public void clickOnLogIn() {
         logInWebElement.click();
     }
-    public void clickOnLogInSubmitButton(){
+
+    public void clickOnLogInSubmitButton() {
         logInSubmitWebElement.click();
     }
+
 }

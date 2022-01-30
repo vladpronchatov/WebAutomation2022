@@ -34,6 +34,7 @@ public class ChaseSectionMenuPage {
     public void clickOnChaseSectionMenu(){
         sectionMenuWebElement.click();
     }
+
     public ChaseCheckingPage goToChaseCheckingPage(WebDriver driver){
         checkingSectionWebElement.click();
 
