@@ -13,7 +13,7 @@
         <parameter name="url" value="https://github.com/"/>
 
         <classes>
-            <class name="githubnavigation.TestLandingPage"/>
+            <class name="githubnavigation.TestGHLandingPage"/>
         </classes>
 
     </test>

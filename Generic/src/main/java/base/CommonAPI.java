@@ -89,10 +89,10 @@ public class CommonAPI {
         return calendar.getTime();
     }
     //webDriver
-    public String browserStackUserName = "your browserstack user name";
-    public String browserStackAccessKey = "your browserstack access key";
-    public String sauceLabsUserName = "your sace lab user name";
-    public String sauceLabsAccessKey = "your sauce lab access key";
+    public String browserStackUserName = "vladislavproncha_t4pJdM";
+    public String browserStackAccessKey = "sYQ8BHDfdmB6z2JhRAdU";
+    public String sauceLabsUserName = "oauth-vp1192-b117f";
+    public String sauceLabsAccessKey = "7c083fcb-7aa0-4435-a390-06f134335f76";
 
     public static WebDriver driver = null;
 
@@ -117,7 +117,7 @@ public class CommonAPI {
     public WebDriver getLocalDriver(String OS, String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
-                //System.setProperty("webdriver.chrome.driver", "Generic/driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "/Users/vlad/WebAutomation-Nobemver2021/Generic/driver/chromedriver");
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }else if(OS.equalsIgnoreCase("Windows")){
