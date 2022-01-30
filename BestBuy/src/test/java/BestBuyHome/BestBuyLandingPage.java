@@ -14,7 +14,6 @@ public class BestBuyLandingPage extends CommonAPI {
         System.out.println(driver.getTitle());
         Thread.sleep(2000);
     }
-
     @FindBy(how = How.CSS, using = ".c-button-unstyled.hamburger-menu-button")
     public static WebElement sectionNavBarWebElement;
 
@@ -27,6 +26,22 @@ public class BestBuyLandingPage extends CommonAPI {
     @FindBy(how = How.CSS, using = ".cia-form__controls")
     public static WebElement logInSubmitWebElement;
 
+    @FindBy(how = How.CSS, using = ".bottom-nav-left li:nth-child(1)")
+    public static WebElement topDealsWebElement;
+
+    @FindBy(how = How.CSS, using = ".bottom-nav-left li:nth-child(2)")
+    public static WebElement dealOfTheDayWebElement;
+
+    @FindBy(how = How.CSS, using = "bottom-nav-right li:nth-child(3)")
+    public static WebElement orderStatusWebElement;
+
+    @FindBy(how = How.CSS, using = ".cart-icon")
+    public static WebElement shoppingCartWebElement;
+
+    @FindBy(how = How.CSS, using = ".store-locator")
+    public static WebElement storeLocationWebElement;
+
+
     public void clickOnSectionMenu(){
         sectionNavBarWebElement.click();
     }
@@ -38,5 +53,20 @@ public class BestBuyLandingPage extends CommonAPI {
     }
     public void clickOnLogInSubmitButton(){
         logInSubmitWebElement.click();
+    }
+    public void clickOnTopDeals(){
+        topDealsWebElement.click();
+    }
+    public void clickOnDealOfTheDay(){
+        dealOfTheDayWebElement.click();
+    }
+    public void clickOnOrderStatus(){
+        orderStatusWebElement.click();
+    }
+    public void clickOnCart(){
+        shoppingCartWebElement.click();
+    }
+    public void clickOnStoreLocation(){
+        storeLocationWebElement.click();
     }
 }

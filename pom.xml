@@ -20,6 +20,7 @@
         <module>WSJ</module>
         <module>Chase</module>
         <module>CNN</module>
+        <module>GH</module>
     </modules>
 
     <dependencyManagement>
