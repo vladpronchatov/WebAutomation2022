@@ -15,6 +15,9 @@ public class WSJLandingPage {
     @FindBy(how = How.CSS, using = "style--masthead-strap-link--2zBu5pWD")
     public static WebElement logInWebElement;
 
+    @FindBy(how = How.CSS, using = ".input-container")
+    public static WebElement logInSubmitWebElement;
+
 
 
     //public void clickOnSectionMenu(){
@@ -25,5 +28,8 @@ public class WSJLandingPage {
     }
     public void clickOnLogIn(){
         logInWebElement.click();
+    }
+    public void clickOnLogInSubmitButton(){
+        logInSubmitWebElement.click();
     }
 }

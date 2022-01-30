@@ -19,6 +19,7 @@
         <module>Cigna</module>
         <module>WSJ</module>
         <module>Chase</module>
+        <module>CNN</module>
     </modules>
 
     <dependencyManagement>
