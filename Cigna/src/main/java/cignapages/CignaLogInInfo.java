@@ -10,8 +10,8 @@ import java.util.List;
 
 public class CignaLogInInfo extends CommonAPI {
     public void loginIntoCigna() throws InterruptedException {
-        typeOnWebElement("email", "yourusername@gmail.com" );
-        typeOnWebElement("pass", "password");
+        typeOnWebElement("username", "yourusername@gmail.com" );
+        typeOnWebElement("password", "password");
         sleepFor(2);
         driver.findElement(By.id("u_0_2")).click();
     }
