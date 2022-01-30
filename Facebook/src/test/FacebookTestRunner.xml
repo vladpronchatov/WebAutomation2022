@@ -13,7 +13,7 @@
         <parameter name="url" value="https://www.facebook.com/"/>
 
         <classes>
-          <!--  <class name="facebookhome.FacebookLandingPage"/>-->
+          <!--  <class name="facebookhome.TestFacebookLandingPage"/>-->
             <class name="facebookhome.TestFacebookLogin"/>
 
         </classes>

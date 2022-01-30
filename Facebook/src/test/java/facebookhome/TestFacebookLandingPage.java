@@ -2,9 +2,8 @@ package facebookhome;
 
 import base.CommonAPI;
 import org.testng.annotations.Test;
-import javax.swing.*;
 
-public class FacebookLandingPage extends CommonAPI {
+public class TestFacebookLandingPage extends CommonAPI {
 
     @Test
     public void landOnHomePage()throws InterruptedException{
