@@ -174,6 +174,21 @@ public class CommonAPI {
     //Selenium API's
     public static void typeOnWebElement(String locator, String value){
         try {
+            driver.findElement(By.cssSelector(locator)).sendKeys(value);
+        }catch (Exception ex1){
+            try{
+                driver.findElement(By.className(locator)).sendKeys(value);
+            }catch (Exception ex2){
+                try {
+                    driver.findElement(By.id(locator)).sendKeys(value);
+                }catch (Exception ex3){
+                    driver.findElement(By.xpath(locator)).sendKeys(value);
+                }
+            }
+        }
+    }
+    public static void typeOnWebElementNEnter(String locator, String value){
+        try {
             driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
         }catch (Exception ex1){
             try{

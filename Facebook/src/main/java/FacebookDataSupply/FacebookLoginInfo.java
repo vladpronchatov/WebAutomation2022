@@ -11,16 +11,17 @@ import java.util.List;
 
 public class FacebookLoginInfo extends CommonAPI {
     public void loginIntoFacebook() throws InterruptedException {
-        typeOnWebElement("email", "webautomation2022@gmail.com" );
-        typeOnWebElement("pass", "Vl@dislav1");
+        typeOnWebElement("email", "webautomation2022@gmail.com");
+        typeOnWebElementNEnter("pass", "Vl@dislav1");
         sleepFor(2);
-        driver.findElement(By.id("u_0_2")).click();
+        //driver.findElement(By.id("u_0_h_rd")).click();
         System.out.println("Successful Login");
 
-        driver.findElement(By.id("userNavigationLabel")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.partialLinkText("Log out")).click();
-        System.out.println("Successfully logged out");
+
+        //driver.findElement(By.id("userNavigationLabel")).click();
+        //Thread.sleep(2000);
+        //driver.findElement(By.partialLinkText("Log out")).click();
+        //System.out.println("Successfully logged out");
     }
 
 }

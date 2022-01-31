@@ -12,7 +12,6 @@ import wsjdatafetch.FetchWSJSteps;
 public class WSJFunctionality {
 
     WSJLandingPage landingPage = null;
-    //SectionMenuPage sectionPage = null;
     WSJSearchPage searchPage = null;
     WSJLoginPage logInPage = null;
 
@@ -30,22 +29,6 @@ public class WSJFunctionality {
         searchPage.searchIconClickNEnterNewsNSubmit();
     }
 
-    //public void clickOnSectionMenu(WebDriver driver)throws InterruptedException {
-    //    landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
-    //    landingPage.clickOnSectionMenu();
-    //}
-
-    //public void sectionsMenu(WebDriver driver)throws InterruptedException {
-    //    clickOnSectionMenu(driver);
-    //    sectionPage = PageFactory.initElements(driver,SectionMenuPage.class);
-    //    String headLineNews = sectionPage.goToMetroPage(driver).getHeadLineNewsText();
-    //    System.out.println(headLineNews);
-    //    clickOnSectionMenu(driver);
-    //    sectionPage.goToBusinessPage(driver).getHeadLineNewsText();
-    //    clickOnSectionMenu(driver);
-    //  sectionPage.goToEntertainmentPage(driver).getHeadLineNewsText();
-    //}
-
     public void runAllTheFeatureTest(WebDriver driver) throws InterruptedException, IOException {
         FetchWSJSteps fetchTheSteps = new FetchWSJSteps();
         String[] featureSteps = fetchTheSteps.getDataFromExcelFile();
@@ -58,9 +41,6 @@ public class WSJFunctionality {
             case "signUp":
                 signUp(driver);
                 break;
-            //case "sectionsMenu":
-            //    sectionsMenu(driver);
-            //    break;
             case "search":
                 search(driver);
                 break;
