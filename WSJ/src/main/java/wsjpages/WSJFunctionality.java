@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 import base.CommonAPI;
-//import datafetch.FetchTheSteps;
+import wsjdatafetch.FetchWSJSteps;
 
 
 public class WSJFunctionality {
@@ -20,8 +20,8 @@ public class WSJFunctionality {
         landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
         logInPage = PageFactory.initElements(driver, WSJLoginPage.class);
         landingPage.clickOnLogIn();
-    //    logInPage.enterEmailAddress("abc123@gmail.com");
-    //    logInPage.clickOnSignUp();
+        logInPage.enterEmailAddress("abc123@gmail.com");
+        logInPage.clickOnSignUp();
     }
     public void search(WebDriver driver){
         landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
@@ -30,10 +30,10 @@ public class WSJFunctionality {
         searchPage.searchIconClickNEnterNewsNSubmit();
     }
 
-    public void clickOnSectionMenu(WebDriver driver)throws InterruptedException {
-        landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
+    //public void clickOnSectionMenu(WebDriver driver)throws InterruptedException {
+    //    landingPage = PageFactory.initElements(driver, WSJLandingPage.class);
     //    landingPage.clickOnSectionMenu();
-    }
+    //}
 
     //public void sectionsMenu(WebDriver driver)throws InterruptedException {
     //    clickOnSectionMenu(driver);
@@ -46,13 +46,13 @@ public class WSJFunctionality {
     //  sectionPage.goToEntertainmentPage(driver).getHeadLineNewsText();
     //}
 
-    //public void runAllTheFeatureTest(WebDriver driver) throws InterruptedException, IOException {
-    //  FetchTheSteps fetchTheSteps = new FetchTheSteps();
-    //  String[] featureSteps = fetchTheSteps.getDataFromExcelFile();
-    //  for (int i=1; i<featureSteps.length; i++){
-    //      select(featureSteps[i], driver);
-    //  }
-    //}
+    public void runAllTheFeatureTest(WebDriver driver) throws InterruptedException, IOException {
+        FetchWSJSteps fetchTheSteps = new FetchWSJSteps();
+        String[] featureSteps = fetchTheSteps.getDataFromExcelFile();
+        for (int i=1; i<featureSteps.length; i++){
+          select(featureSteps[i], driver);
+      }
+    }
     public void select(String featureName, WebDriver driver)throws InterruptedException, IOException {
         switch(featureName){
             case "signUp":

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GHLoginInfo extends CommonAPI {
 
-    public void loginIntoCigna() throws InterruptedException {
+    public void loginIntoGitHub() throws InterruptedException {
         typeOnWebElement("login", "yourusername@gmail.com" );
         typeOnWebElement("password", "password");
         sleepFor(2);

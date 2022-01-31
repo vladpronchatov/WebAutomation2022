@@ -6,18 +6,14 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import wsjpages.AllFunctionality;
+import wsjpages.WSJFunctionality;
 
 
-public class TestWSJFunctionality {
-}
-
-
-public class TestAllFunctionality extends CommonAPI {
+public class TestWSJFunctionality extends CommonAPI {
 
     @Test
     public void newsFeatures() throws IOException, InterruptedException {
-        AllFunctionality featureNews = PageFactory.initElements(driver, AllFunctionality.class);
+        WSJFunctionality featureNews = PageFactory.initElements(driver, WSJFunctionality.class);
         featureNews.runAllTheFeatureTest(driver);
     }
 }

@@ -10,7 +10,7 @@ public class TestChaseSectionMenu extends CommonAPI{
     @Test
     public void sectionMenu(){
         ChaseSectionMenuPage sectionMenuPage = PageFactory.initElements(driver, ChaseSectionMenuPage.class);
-        //sectionMenuPage.clickOnSectionMenu();
-        //sectionMenuPage.goToBusinessPage(driver).getHeadLineNewsText();
+        sectionMenuPage.clickOnChaseSectionMenu();
+        sectionMenuPage.goToChaseBusinessPage(driver).getHeadLineNewsText();
     }
 }

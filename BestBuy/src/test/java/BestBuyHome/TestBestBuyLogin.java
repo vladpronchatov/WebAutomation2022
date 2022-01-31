@@ -1,19 +1,19 @@
-package chasenavigation;
+package BestBuyHome;
 
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
-
-import chasepages.ChaseLoginInfo;
+import bestbuydatasupply.BestBuyLoginInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+public class TestBestBuyLogin extends BestBuyLoginInfo {
 
-public class TestChaseLogin extends ChaseLoginInfo {
     @Test
     public void login() throws InterruptedException {
-        loginIntoChase();
+        loginIntoBestBuy();
+
     }
 }
