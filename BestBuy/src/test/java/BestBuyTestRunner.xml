@@ -14,6 +14,8 @@
 
     <classes>
         <class name="BestBuyHome.BestBuyLandingPage"/>
+        <class name="BestBuyHome.TestBestBuyDropDownMenu"/>
+        <class name="BestBuyHome.TestBestBuyPageTitle"/>
 
     </classes>
 

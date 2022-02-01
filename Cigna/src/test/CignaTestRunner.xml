@@ -14,7 +14,7 @@
 
     <classes>
         <!--            <class name="home.TestPageTitle"/>-->
-        <class name="cignanavigation.CignaLandingPage"/>
+        <class name="cignanavigation.TestCignaLandingPage"/>
         <!--            <class name="home.TestDropDownMenu"/>-->
     </classes>
 

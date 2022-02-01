@@ -10,7 +10,7 @@ public class CignaLandingPage extends CommonAPI {
     @FindBy(how = How.CSS, using = ".navbar-toggler.navbar-toggler-right.btn.btn-sm.btn-flat-secondary")
     public static WebElement sectionNavBarWebElement;
 
-    @FindBy(how = How.CSS, using = "./html/body/div[2]/div[1]/div/div[1]/div/div[2]/div/div/div/header/div[2]/nav[1]/div/ul/li[4]/form/div/div/span/button")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"ssi-includes\"]/div/header/div[2]/nav[1]/div/ul/li[4]/form/div/div/span/button")
     public static WebElement searchWebElement;
 
     @FindBy(how = How.CSS, using = ".btn.btn-sm.btn-primary")
@@ -19,7 +19,7 @@ public class CignaLandingPage extends CommonAPI {
     @FindBy(how = How.CSS, using = "#loginbutton")
     public static WebElement logInSubmitWebElement;
 
-    @FindBy(how = How.CSS, using = "#ssi-includes > div > header > div.d-none.d-lg-block > nav.navbar.global-nav.logo-nav.navbar-expand-lg.navbar-white.bg-white > div > ul > li:nth-child(1) > a")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"ssi-includes\"]/div/header/div[2]/nav[2]/div/ul/li[1]/a")
     public static WebElement findDoctorWebElement;
 
     @FindBy(how = How.CSS, using = "#individuals-families")

@@ -11,9 +11,8 @@ import java.util.List;
 public class BestBuyLoginInfo extends CommonAPI {
     public void loginIntoBestBuy() throws InterruptedException {
         typeOnWebElement("email", "yourusername@gmail.com" );
-        typeOnWebElement("password", "password");
+        typeOnWebElementNEnter("password", "password");
         sleepFor(2);
-        driver.findElement(By.id("u_0_2")).click();
     }
 
     public void logoutOfBestBuy() {

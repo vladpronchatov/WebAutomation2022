@@ -7,19 +7,19 @@ import pages.LandingPage;
 
 public class NYPLandingPage extends CommonAPI {
 
-    //@Test
+    @Test
     public void getLandingPageTitle()throws InterruptedException{
         System.out.println(driver.getTitle());
         Thread.sleep(2000);
     }
 
-    //@Test
+    @Test
     public void clickOnSectionMenuTab(){
         LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
         landingPage.clickOnSectionMenu();
     }
 
-    //@Test
+    @Test
     public void clickOnSearch(){
         LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
         landingPage.clickOnSearch();

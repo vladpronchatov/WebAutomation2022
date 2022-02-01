@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name ="Cigna Test Automation Script" parallel="false">
-    <test name = "Cigna Home">
+<suite name ="Chase Automation Script" parallel="false">
+    <test name = "Chase Home">
 
         <parameter name="useCloudEnv" value="false"/>
         <parameter name="envName" value="browserstack"/>
@@ -14,7 +14,7 @@
 
         <classes>
             <!--            <class name="home.TestPageTitle"/>-->
-            <class name="chasepages.ChaseLandingPage"/>
+            <class name="chasenavigation.TestChaseLandingPage"/>
             <!--            <class name="home.TestDropDownMenu"/>-->
         </classes>
 

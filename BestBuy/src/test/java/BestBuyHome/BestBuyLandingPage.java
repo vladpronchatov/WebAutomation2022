@@ -41,7 +41,6 @@ public class BestBuyLandingPage extends CommonAPI {
     @FindBy(how = How.CSS, using = ".store-locator")
     public static WebElement storeLocationWebElement;
 
-
     public void clickOnSectionMenu(){
         sectionNavBarWebElement.click();
     }
