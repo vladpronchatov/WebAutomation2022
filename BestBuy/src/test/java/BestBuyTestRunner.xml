@@ -13,7 +13,7 @@
     <parameter name="url" value="https://www.bestbuy.com"/>
 
     <classes>
-        <class name="BestBuyHome.BestBuyLandingPage"/>
+        <class name="BestBuyHome.TestBestBuyLandingPage"/>
         <class name="BestBuyHome.TestBestBuyDropDownMenu"/>
         <class name="BestBuyHome.TestBestBuyPageTitle"/>
 

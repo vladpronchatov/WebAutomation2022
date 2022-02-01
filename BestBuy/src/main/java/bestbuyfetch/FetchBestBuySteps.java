@@ -4,7 +4,7 @@ import datasource.ConnectToExcelFile;
 
 import java.io.IOException;
 
-public class FetchBestBuyData {
+public class FetchBestBuySteps {
 
     ConnectToExcelFile excelFile = new ConnectToExcelFile();
 

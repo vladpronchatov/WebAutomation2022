@@ -5,9 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.annotations.Test;
-import javax.swing.*;
 
-public class BestBuyLandingPage extends CommonAPI {
+public class TestBestBuyLandingPage extends CommonAPI {
 
     @Test
     public void landOnHomePage()throws InterruptedException{
