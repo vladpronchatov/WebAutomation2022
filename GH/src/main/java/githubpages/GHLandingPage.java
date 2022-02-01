@@ -10,7 +10,7 @@ public class GHLandingPage extends CommonAPI {
     @FindBy(how = How.CSS, using = "/html/body/div[1]/header/div/div[1]/div[2]/button")
     public static WebElement sectionNavBarWebElement;
 
-    @FindBy(how = How.CSS, using = ".form-control.input-sm.header-search-input.jump-to-field.js-jump-to-field.js-site-search-focus")
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]")
     public static WebElement searchWebElement;
 
     @FindBy(how = How.CSS, using = ".HeaderMenu-link.flex-shrink-0.no-underline")

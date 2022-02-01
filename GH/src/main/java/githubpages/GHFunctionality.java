@@ -1,24 +1,24 @@
-package cignapages;
+package githubpages;
 
 import base.CommonAPI;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import reporting.TestLogger;
-import cignafetch.FetchCignaSteps;
+import ghfetch.FetchGHSteps;
 
 import java.io.IOException;
 
-public class CignaFunctionality {
+public class GHFunctionality {
 
-    CignaLandingPage landingPage = null;
-    CignaSearchPage searchPage = null;
-    CignaLogInPage logInPage = null;
+    GHLandingPage landingPage = null;
+    GHSearchPage searchPage = null;
+    GHLoginPage logInPage = null;
 
     public void logIn(WebDriver driver){
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        landingPage = PageFactory.initElements(driver, CignaLandingPage.class);
-        logInPage = PageFactory.initElements(driver, CignaLogInPage.class);
+        landingPage = PageFactory.initElements(driver, GHLandingPage.class);
+        logInPage = PageFactory.initElements(driver, GHLoginPage.class);
         landingPage.clickOnLogIn();
         logInPage.enterEmailAddress("abc123@gmail.com");
         logInPage.enterPassword("abc123");
@@ -26,14 +26,14 @@ public class CignaFunctionality {
     }
     public void search(WebDriver driver){
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        landingPage = PageFactory.initElements(driver, CignaLandingPage.class);
+        landingPage = PageFactory.initElements(driver, GHLandingPage.class);
         landingPage.clickOnSearch();
-        searchPage = PageFactory.initElements(driver, CignaSearchPage.class);
+        searchPage = PageFactory.initElements(driver, GHSearchPage.class);
     }
 
     public void runAllTheFeatureTest(WebDriver driver) throws InterruptedException, IOException {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        FetchCignaSteps fetchTheSteps = new FetchCignaSteps();
+        FetchGHSteps fetchTheSteps = new FetchGHSteps();
         String[] featureSteps = fetchTheSteps.getDataFromExcelFile();
         for (int i=1; i<featureSteps.length; i++){
             select(featureSteps[i], driver);

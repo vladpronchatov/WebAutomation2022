@@ -14,6 +14,8 @@
 
         <classes>
             <class name="githubnavigation.TestGHLandingPage"/>
+            <class name="githubnavigation.TestGHPageTitle"/>
+            <class name="githubnavigation.TestGHLogin/>
         </classes>
 
     </test>
