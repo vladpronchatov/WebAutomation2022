@@ -10,14 +10,14 @@ import java.io.IOException;
 
 public class FBFunctionality {
 
-    FBLandingPage landingPage = null;
-    FBSearchPage searchPage = null;
-    FBLoginPage logInPage = null;
+    FacebookLandingPage landingPage = null;
+    FacebookSearchPage searchPage = null;
+    FacebookLoginPage logInPage = null;
 
     public void logIn(WebDriver driver){
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        landingPage = PageFactory.initElements(driver, FBLandingPage.class);
-        logInPage = PageFactory.initElements(driver, FBLoginPage.class);
+        landingPage = PageFactory.initElements(driver, FacebookLandingPage.class);
+        logInPage = PageFactory.initElements(driver, FacebookLoginPage.class);
         landingPage.clickOnLogIn();
         logInPage.enterEmailAddress("abc123@gmail.com");
         logInPage.enterPassword("abc123");
@@ -25,9 +25,9 @@ public class FBFunctionality {
     }
     public void search(WebDriver driver){
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        landingPage = PageFactory.initElements(driver, GHLandingPage.class);
+        landingPage = PageFactory.initElements(driver, FacebookLandingPage.class);
         landingPage.clickOnSearch();
-        searchPage = PageFactory.initElements(driver, GHSearchPage.class);
+        searchPage = PageFactory.initElements(driver, FacebookSearchPage.class);
     }
 
     public void runAllTheFeatureTest(WebDriver driver) throws InterruptedException, IOException {
