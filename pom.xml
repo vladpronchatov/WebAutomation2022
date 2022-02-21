@@ -21,6 +21,7 @@
         <module>Chase</module>
         <module>CNN</module>
         <module>GH</module>
+        <module>Google</module>
     </modules>
 
     <dependencyManagement>
