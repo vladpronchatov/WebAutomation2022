@@ -19,9 +19,9 @@ public class FBFunctionality {
         landingPage = PageFactory.initElements(driver, FacebookLandingPage.class);
         logInPage = PageFactory.initElements(driver, FacebookLoginPage.class);
         landingPage.clickOnLogIn();
-        logInPage.enterEmailAddress("abc123@gmail.com");
-        logInPage.enterPassword("abc123");
-        logInPage.clickOnLogInSubmitButton();
+        //logInPage.enterEmailAddress("abc123@gmail.com");
+        //logInPage.enterPassword("abc123");
+        //logInPage.clickOnLogInSubmitButton();
     }
     public void search(WebDriver driver){
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));

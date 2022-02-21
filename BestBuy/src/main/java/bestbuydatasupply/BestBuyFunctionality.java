@@ -28,11 +28,11 @@ public class BestBuyFunctionality {
     public void runAllTheFeatureTest(WebDriver driver) throws InterruptedException, IOException {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         FetchBestBuySteps fetchTheSteps = new FetchBestBuySteps();
-        String[] featureSteps = fetchTheSteps.getDataFromExcelFile();
-        for (int i=1; i<featureSteps.length; i++){
-            select(featureSteps[i], driver);
+        //String[] featureSteps = fetchTheSteps.getDataFromExcelFile();
+        //for (int i=1; i<featureSteps.length; i++){
+        //    select(featureSteps[i], driver);
         }
-    }
+    //}
     public void select(String featureName, WebDriver driver)throws InterruptedException, IOException {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         switch(featureName){
