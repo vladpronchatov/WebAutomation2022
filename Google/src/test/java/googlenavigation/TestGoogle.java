@@ -13,71 +13,70 @@ import java.io.IOException;
 public class TestGoogle extends CommonAPI {
 
     @Test
-    public void getLandingPageTitle()throws InterruptedException{
+    public void getLandingPageTitle() throws InterruptedException {
         System.out.println(driver.getTitle());
         Thread.sleep(2000);
     }
 
     @Test
-    public void clickOnSectionMenuTab(){
+    public void clickOnSectionMenuTab() {
         GoogleLandingPage landingPage = PageFactory.initElements(driver, GoogleLandingPage.class);
         landingPage.clickOnSectionMenu();
     }
 
     @Test
-    public void clickOnSearch(){
+    public void clickOnSearch() {
         GoogleLandingPage landingPage = PageFactory.initElements(driver, GoogleLandingPage.class);
         //landingPage.clickOnSearch();
     }
-public class AllFunctionality {
 
-    GoogleLandingPage landingPage = null;
+    public class AllFunctionality {
 
-    String captureUrl = "https://google.com";
+        GoogleLandingPage landingPage = null;
 
-    public void search(WebDriver driver){
-        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        landingPage = PageFactory.initElements(driver, GoogleLandingPage.class);
-        landingPage.clickOnSearchNSubmit();
-    }
+        String captureUrl = "https://google.com";
 
-    public void clickOnSectionMenu(WebDriver driver)throws InterruptedException {
-        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        landingPage = PageFactory.initElements(driver, GoogleLandingPage.class);
-        landingPage.clickOnSectionMenu();
-    }
-
-    public void sectionsMenu(WebDriver driver, String capturedUrl)throws InterruptedException {
-        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        try {
-            clickOnSectionMenu(driver);
-        }catch (Exception ex){
-            driver.navigate().to(capturedUrl);
-            clickOnSectionMenu(driver);
+        public void search(WebDriver driver) {
+            TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
+            }.getClass().getEnclosingMethod().getName()));
+            landingPage = PageFactory.initElements(driver, GoogleLandingPage.class);
+            landingPage.clickOnSearchNSubmit();
         }
-        sectionPage = PageFactory.initElements(driver,SectionMenuPage.class);
-        String headLineNews = sectionPage.goToMetroPage(driver).getHeadLineNewsText();
-        System.out.println(headLineNews);
-        clickOnSectionMenu(driver);
-        sectionPage.goToBusinessPage(driver).getHeadLineNewsText();
-        clickOnSectionMenu(driver);
-        sectionPage.goToEntertainmentPage(driver).getHeadLineNewsText();
-    }
 
-    public void select(String featureName, WebDriver driver)throws InterruptedException, IOException {
-        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        switch(featureName){
-            case "signUp":
-                logIn(driver);
-                break;
-            case "sectionsMenu":
-                sectionsMenu(driver,captureUrl);
-                break;
-            case "search":
-                search(driver);
-                break;
-            default:
-                throw new InvalidArgumentException("Invalid features choice");
+        public void clickOnSectionMenu(WebDriver driver) throws InterruptedException {
+            TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
+            }.getClass().getEnclosingMethod().getName()));
+            landingPage = PageFactory.initElements(driver, GoogleLandingPage.class);
+            landingPage.clickOnSectionMenu();
+        }
+
+        public void sectionsMenu(WebDriver driver, String capturedUrl) throws InterruptedException {
+            TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
+            }.getClass().getEnclosingMethod().getName()));
+            try {
+                clickOnSectionMenu(driver);
+            } catch (Exception ex) {
+                driver.navigate().to(capturedUrl);
+                clickOnSectionMenu(driver);
+            }
+        }
+
+        public void select(String featureName, WebDriver driver) throws InterruptedException, IOException {
+            TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
+            }.getClass().getEnclosingMethod().getName()));
+            switch (featureName) {
+                case "signUp":
+                    //logIn(driver);
+                    break;
+                case "sectionsMenu":
+                    sectionsMenu(driver, captureUrl);
+                    break;
+                case "search":
+                    search(driver);
+                    break;
+                default:
+                    throw new InvalidArgumentException("Invalid features choice");
+            }
         }
     }
 }

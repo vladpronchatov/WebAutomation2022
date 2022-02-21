@@ -13,8 +13,8 @@ public class GoogleLandingPage{
     @FindBy(how = How.CSS,using = "#input")
     public static WebElement searchInputFieldWebElement;
 
-    public void clickOnSearchNSubmit(String value){
-        searchInputFieldWebElement.sendKeys(value, Keys.ENTER);
+    public void clickOnSearchNSubmit(){
+        searchInputFieldWebElement.sendKeys(Keys.ENTER);
     }
     public void clickOnSectionMenu(){
         sectionNavBarWebElement.click();
